@@ -6,13 +6,31 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		7EE20B4E2E66209B006FDA38 /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 7EE20B4D2E66209B006FDA38 /* SwipeActions */; };
+		7EE20B512E6620AE006FDA38 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7EE20B502E6620AE006FDA38 /* RealmSwift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		7E1C92832E6236DE0057F423 /* QuackyEggLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuackyEggLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		7E1C92A12E6239BD0057F423 /* Exceptions for "QuackyEggLog" folder in "QuackyEggLog" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 7E1C92822E6236DE0057F423 /* QuackyEggLog */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		7E1C92852E6236DE0057F423 /* QuackyEggLog */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7E1C92A12E6239BD0057F423 /* Exceptions for "QuackyEggLog" folder in "QuackyEggLog" target */,
+			);
 			path = QuackyEggLog;
 			sourceTree = "<group>";
 		};
@@ -23,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EE20B512E6620AE006FDA38 /* RealmSwift in Frameworks */,
+				7EE20B4E2E66209B006FDA38 /* SwipeActions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +85,8 @@
 			);
 			name = QuackyEggLog;
 			packageProductDependencies = (
+				7EE20B4D2E66209B006FDA38 /* SwipeActions */,
+				7EE20B502E6620AE006FDA38 /* RealmSwift */,
 			);
 			productName = QuackyEggLog;
 			productReference = 7E1C92832E6236DE0057F423 /* QuackyEggLog.app */;
@@ -94,6 +116,10 @@
 			);
 			mainGroup = 7E1C927A2E6236DE0057F423;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				7EE20B4C2E66209B006FDA38 /* XCRemoteSwiftPackageReference "SwipeActions" */,
+				7EE20B4F2E6620AE006FDA38 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7E1C92842E6236DE0057F423 /* Products */;
 			projectDirPath = "";
@@ -253,11 +279,16 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QuackyEggLog/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NSPhotoLibraryUsageDescription;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This is required to allow you to select photos from your gallery to upload and use within the app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -265,9 +296,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.quacky.egg.log.app.QuackyEggLog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -280,11 +315,16 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QuackyEggLog/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NSPhotoLibraryUsageDescription;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This is required to allow you to select photos from your gallery to upload and use within the app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -292,9 +332,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.quacky.egg.log.app.QuackyEggLog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -320,6 +364,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7EE20B4C2E66209B006FDA38 /* XCRemoteSwiftPackageReference "SwipeActions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aheze/SwipeActions";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+		7EE20B4F2E6620AE006FDA38 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7EE20B4D2E66209B006FDA38 /* SwipeActions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7EE20B4C2E66209B006FDA38 /* XCRemoteSwiftPackageReference "SwipeActions" */;
+			productName = SwipeActions;
+		};
+		7EE20B502E6620AE006FDA38 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7EE20B4F2E6620AE006FDA38 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7E1C927B2E6236DE0057F423 /* Project object */;
 }

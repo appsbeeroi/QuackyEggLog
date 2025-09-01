@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "mdi_duck.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
