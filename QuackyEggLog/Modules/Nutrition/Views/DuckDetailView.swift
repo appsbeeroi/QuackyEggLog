@@ -70,6 +70,10 @@ struct DuckDetailView: View {
             }
         }
         .navigationBarBackButtonHidden()
+        .onAppear {
+            feedingToEdit = nil
+            reminderToEdit = nil
+        }
     }
     
     private var navigationView: some View {

@@ -31,23 +31,31 @@ struct AdaptableCustomTextField: View {
                         .padding(.top, 12)
                         .font(.system(size: 20, weight: .medium))
                         .foregroundStyle(text == "" ? .baseGray : .black)
+                        .onTapGesture {
+                            isFocused = true
+                        }
                 
-                    TextEditor(text: $text)
+                    TextField("", text: $text)
                         .frame(maxHeight: .infinity)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(.system(size: 20, weight: .medium))
                         .foregroundStyle(.black)
-                        .opacity(0.05)
+                        .opacity(0.001)
+                        .focused($isFocused)
                 }
                 
                 if text != "" {
-                    Button {
-                        text = ""
-                    } label: {
-                        Image(systemName: "multiply.circle.fill")
-                            .font(.system(size: 20, weight: .medium))
-                            .foregroundStyle(.white.opacity(0.1))
+                    VStack {
+                        Button {
+                            text = ""
+                        } label: {
+                            Image(systemName: "multiply.circle.fill")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(.baseDarkGray.opacity(0.5))
+                        }
                     }
+                    .frame(maxHeight: .infinity, alignment: .top)
+                    .padding(.top)
                 }
             }
         }
@@ -55,6 +63,5 @@ struct AdaptableCustomTextField: View {
         .padding(.horizontal, 12)
         .background(.white)
         .cornerRadius(18)
-        .animation(.default, value: text)
     }
 }

@@ -19,7 +19,7 @@ struct AddFeedingsView: View {
                 navigationView
                 
                 VStack(spacing: 8) {
-                    DatePicker("", selection: $feedings.date)
+                    DatePicker("", selection: $feedings.date, in: ...Date())
                         .labelsHidden()
                         .datePickerStyle(.wheel)
                         .padding(5)

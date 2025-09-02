@@ -16,7 +16,7 @@ struct TabBarView: View {
                 NutritionView(isShowTabBar: $isShowTabBar)
                     .tag(TabBarPage.nutrition)
                 
-                StatisticsView()
+                StatisticsView(isShowTabBar: $isShowTabBar)
                     .tag(TabBarPage.statistics)
                 
                 DashView(isShowTabBar: $isShowTabBar)

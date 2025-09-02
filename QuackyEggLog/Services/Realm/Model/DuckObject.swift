@@ -12,6 +12,7 @@ final class DuckObject: Object {
     @Persisted var feedings = List<DuckFeedingObject>()
     @Persisted var reminders = List<ReminderObject>()
     @Persisted var specificReminderDate: Date
+    @Persisted var events = List<EventObject>()
     
     convenience init(from model: Duck, and imagePath: String) {
         self.init()
@@ -30,6 +31,10 @@ final class DuckObject: Object {
         
         model.reminders.forEach {
             self.reminders.append(ReminderObject(from: $0))
+        }
+        
+        model.events.forEach {
+            self.events.append(EventObject(from: $0))
         }
     }
 }

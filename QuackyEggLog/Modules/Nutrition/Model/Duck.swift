@@ -11,6 +11,7 @@ struct Duck: Identifiable, Equatable {
     var feedings: [DuckFeeding]
     var reminders: [Reminder]
     var specificReminderDate: Date
+    var events: [Event]
     
     var isUnlock: Bool {
         image != nil && name != "" && breed != "" && age != "" && weight != "" && features != ""
@@ -27,6 +28,7 @@ struct Duck: Identifiable, Equatable {
         self.feedings = isReal ? [] : [DuckFeeding(isReal: false)]
         self.reminders = isReal ? [] : [Reminder(isReal: false)]
         self.specificReminderDate = Date()
+        self.events = []
     }
     
     init(from object: DuckObject, and image: UIImage) {
@@ -40,5 +42,7 @@ struct Duck: Identifiable, Equatable {
         self.feedings = object.feedings.map { DuckFeeding(from: $0) }
         self.reminders = object.reminders.map { Reminder(from: $0) }
         self.specificReminderDate = object.specificReminderDate
+        self.events = object.events.map { Event(from: $0) }
     }
 }
+

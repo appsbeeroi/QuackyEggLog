@@ -39,7 +39,7 @@ struct BaseCustomTextField: View {
                 } label: {
                     Image(systemName: "multiply.circle.fill")
                         .font(.system(size: 20, weight: .medium))
-                        .foregroundStyle(.white.opacity(0.5))
+                        .foregroundStyle(.baseDarkGray.opacity(0.5))
                 }
             }
         }

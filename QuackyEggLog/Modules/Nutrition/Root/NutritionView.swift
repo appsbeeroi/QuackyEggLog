@@ -84,7 +84,7 @@ struct NutritionView: View {
     
     private var ducksList: some View {
         ScrollView(showsIndicators: false) {
-            VStack(spacing: 12) {
+            LazyVStack(spacing: 12) {
                 ForEach(viewModel.ducks) { duck in
                     NutritionDuckCellView(duck: duck) {
                         duckToEdit = duck
