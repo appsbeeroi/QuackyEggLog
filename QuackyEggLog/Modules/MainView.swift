@@ -7,8 +7,9 @@ struct MainView: View {
     var body: some View {
         if isShowMainFlow {
             TabBarView()
+                .transition(.opacity)
         } else {
-            SplashScreen()
+            SplashScreen(isShowMainFlow: $isShowMainFlow)
         }
     }
 }

@@ -22,7 +22,7 @@ struct TabBarView: View {
                 DashView(isShowTabBar: $isShowTabBar)
                     .tag(TabBarPage.dash)
                 
-                SettingsView()
+                SettingsView(isShowTabBar: $isShowTabBar)
                     .tag(TabBarPage.settings)
             }
             

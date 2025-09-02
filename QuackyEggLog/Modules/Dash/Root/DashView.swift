@@ -20,6 +20,7 @@ struct DashView: View {
                 }
                 .frame(maxHeight: .infinity, alignment: .top)
                 .padding(.horizontal, 35)
+                .padding(.bottom, 96)
                 
                 NavigationLink(isActive: $isShowFavoritesView) {
                     DuckDashFavoritesView(viewModel: viewModel)
