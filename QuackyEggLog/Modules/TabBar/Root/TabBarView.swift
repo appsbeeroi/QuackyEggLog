@@ -1,32 +1,14 @@
 import SwiftUI
 
-enum TabBarPage: Identifiable, CaseIterable {
-    var id: Self { self }
-    
-    case nutrition
-    case statistics
-    case dash
-    case settings
-    
-    var icon: ImageResource {
-        switch self {
-            case .nutrition:
-                    .Images.TabBar.nutrition
-            case .statistics:
-                    .Images.TabBar.statistics
-            case .dash:
-                    .Images.TabBar.dash
-            case .settings:
-                    .Images.TabBar.settings
-        }
-    }
-}
-
 struct TabBarView: View {
     
     @State private var selection: TabBarPage = .nutrition
     
     @State private var isShowTabBar = false
+    
+    init() {
+        UITabBar.appearance().isHidden = true
+    }
     
     var body: some View {
         ZStack {
@@ -37,7 +19,7 @@ struct TabBarView: View {
                 StatisticsView()
                     .tag(TabBarPage.statistics)
                 
-                DashView()
+                DashView(isShowTabBar: $isShowTabBar)
                     .tag(TabBarPage.dash)
                 
                 SettingsView()
@@ -85,81 +67,3 @@ struct TabBarView: View {
 }
 
 
-
-struct StatisticsView: View {
-    
-    var body: some View {
-        NavigationView {
-            ZStack {
-                Image(.Images.background)
-                    .scaleToFillAndCropp()
-                Text("Statistics")
-                
-                VStack(spacing: 16) {
-                    navigationView
-                }
-                .frame(maxHeight: .infinity, alignment: .top)
-            }
-        }
-    }
-    
-    private var navigationView: some View {
-        Text("STATISTICS &\nPRODUCTIVITY")
-            .font(.brust(with: 35))
-            .multilineTextAlignment(.center)
-            .foregroundStyle(.black)
-            .lineLimit(2)
-    }
-}
-
-struct DashView: View {
-    
-    var body: some View {
-        NavigationView {
-            ZStack {
-                Image(.Images.background)
-                    .scaleToFillAndCropp()
-                Text("Dash")
-                
-                VStack(spacing: 16) {
-                    navigationView
-                }
-                .frame(maxHeight: .infinity, alignment: .top)
-            }
-        }
-    }
-    
-    private var navigationView: some View {
-        Text("DUCK DASH")
-            .font(.brust(with: 35))
-            .multilineTextAlignment(.center)
-            .foregroundStyle(.black)
-            .lineLimit(2)
-    }
-}
-
-struct SettingsView: View {
-    
-    var body: some View {
-        NavigationView {
-            ZStack {
-                Image(.Images.background)
-                    .scaleToFillAndCropp()
-                Text("Settings")
-                
-                VStack(spacing: 16) {
-                    navigationView
-                }
-                .frame(maxHeight: .infinity, alignment: .top)
-            }
-        }
-    }
-    
-    private var navigationView: some View {
-        Text("SETTINGS")
-            .font(.brust(with: 35))
-            .multilineTextAlignment(.center)
-            .foregroundStyle(.black)
-            .lineLimit(2)
-    }
-}
