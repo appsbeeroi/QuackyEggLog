@@ -1,30 +1,5 @@
 import SwiftUI
 
-
-final class NutritionViewModel: ObservableObject {
-    
-    @Published var isCloseActiveNavigation = false
-    
-    @Published private(set) var ducks: [Duck] = [Duck(isReal: false)]
-    
-    func loadDucs() {
-        //
-    }
-    
-    func save(_ duck: Duck) {
-        ducks.append(duck)
-        isCloseActiveNavigation = true 
-    }
-    
-    func remove(_ duck: Duck) {
-        guard let index = ducks.firstIndex(where: { $0.id == duck.id }) else { return }
-        
-        ducks.remove(at: index)
-        
-        isCloseActiveNavigation = true
-    }
-}
-
 struct NutritionView: View {
     
     @StateObject private var viewModel = NutritionViewModel()
@@ -112,6 +87,13 @@ struct NutritionView: View {
             VStack(spacing: 12) {
                 ForEach(viewModel.ducks) { duck in
                     NutritionDuckCellView(duck: duck) {
+                        duckToEdit = duck
+                        isShowTabBar = false
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            isShowAddDuckView = true
+                        }
+                    } editAction: {
                         duckToEdit = duck
                         isShowTabBar = false
                         

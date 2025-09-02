@@ -16,4 +16,11 @@ struct DuckFeeding: Identifiable, Equatable {
         self.type = isReal ? "" : "Food"
         self.quantity = isReal ? "" : "1"
     }
+    
+    init(from object: DuckFeedingObject) {
+        self.id = object.id
+        self.date = object.date
+        self.type = object.type
+        self.quantity = object.quontity
+    }
 }

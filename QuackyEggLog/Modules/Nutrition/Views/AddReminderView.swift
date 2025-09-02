@@ -6,7 +6,10 @@ struct AddReminderView: View {
     
     @State var reminder: Reminder
     
-    let save: (Reminder) -> Void
+    let save: (Reminder, Date) -> Void
+    
+    @State private var specificDate = Date()
+    @State private var isShowDatePicker = false
     
     @FocusState var isFocused: Bool
     
@@ -26,7 +29,7 @@ struct AddReminderView: View {
                 Spacer()
                 
                 Button {
-                    save(reminder)
+                    save(reminder, specificDate)
                     dismiss()
                 } label: {
                     Image(reminder.isUnlock ? .Images.Buttons.complete : .Images.Buttons.completeInactive)
@@ -38,8 +41,46 @@ struct AddReminderView: View {
             }
             .frame(maxHeight: .infinity, alignment: .top)
             .padding(.horizontal, 35)
+            
+            if isShowDatePicker {
+                ZStack {
+                    Color.black.opacity(0.3)
+                        .ignoresSafeArea()
+                        .onTapGesture {
+                            isShowDatePicker = false
+                            reminder.frequency = nil 
+                        }
+                    
+                    VStack {
+                        VStack {
+                            DatePicker("", selection: $specificDate)
+                                .labelsHidden()
+                                .datePickerStyle(.wheel)
+                            
+                            Button {
+                                isShowDatePicker = false
+                            } label: {
+                                Image(.Images.Buttons.complete)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 90, height: 90)
+                            }
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(20)
+                        .background(.white)
+                        .cornerRadius(36, corners: [.topLeft, .topRight])
+                    }
+                    .frame(maxHeight: .infinity, alignment: .bottom)
+                    .ignoresSafeArea()
+                }
+            }
         }
         .navigationBarBackButtonHidden()
+        .animation(.default, value: isShowDatePicker)
+        .onChange(of: reminder.frequency) { type in
+            isShowDatePicker = type == .specificDates
+        }
     }
     
     private var navigationView: some View {
@@ -106,7 +147,7 @@ struct AddReminderView: View {
 
 #Preview {
     NavigationView {
-        AddReminderView(reminder: Reminder(isReal: false)) { _ in }
+        AddReminderView(reminder: Reminder(isReal: false)) { _, _ in }
     }
 }
 

@@ -28,4 +28,17 @@ struct Duck: Identifiable, Equatable {
         self.reminders = isReal ? [] : [Reminder(isReal: false)]
         self.specificReminderDate = Date()
     }
+    
+    init(from object: DuckObject, and image: UIImage) {
+        self.id = object.id
+        self.image = image
+        self.name = object.name
+        self.breed = object.breed
+        self.age = object.age
+        self.weight = object.weight
+        self.features = object.features
+        self.feedings = object.feedings.map { DuckFeeding(from: $0) }
+        self.reminders = object.reminders.map { Reminder(from: $0) }
+        self.specificReminderDate = object.specificReminderDate
+    }
 }

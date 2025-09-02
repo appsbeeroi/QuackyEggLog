@@ -16,4 +16,12 @@ struct Reminder: Identifiable, Equatable {
         self.frequency = isReal ? nil : .every3days
         self.comment = isReal ? "" : "This is a test reminder"
     }
+    
+    init(from object: ReminderObject) {
+        self.id = object.id
+        self.type = object.type
+        self.frequency = object.frequency
+        self.comment = object.comment
+    }
 }
+

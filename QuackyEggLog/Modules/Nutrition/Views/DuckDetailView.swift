@@ -43,15 +43,27 @@ struct DuckDetailView: View {
             
             NavigationLink(isActive: $isShowAddFeedingView) {
                 AddFeedingsView(feedings: feedingToEdit ?? DuckFeeding(isReal: true)) { feeding in
-                    duck.feedings.append(feeding)
+                    if let index = duck.feedings.firstIndex(where: { $0.id == feeding.id }) {
+                        duck.feedings[index] = feeding
+                    } else {
+                        duck.feedings.append(feeding)
+                    }
                 }
             } label: {
                 EmptyView()
             }
             
             NavigationLink(isActive: $isShowAddReminderView) {
-                AddReminderView(reminder: reminderToEdit ?? Reminder(isReal: true)) { reminder in
-                    duck.reminders.append(reminder)
+                AddReminderView(reminder: reminderToEdit ?? Reminder(isReal: true)) { reminder, specificDate in
+                    if reminder.frequency == .specificDates {
+                        duck.specificReminderDate = specificDate
+                    }
+                    
+                    if let index = duck.reminders.firstIndex(where: { $0.id == reminder.id }) {
+                        duck.reminders[index] = reminder
+                    } else {
+                        duck.reminders.append(reminder)
+                    }
                 }
             } label: {
                 EmptyView()
