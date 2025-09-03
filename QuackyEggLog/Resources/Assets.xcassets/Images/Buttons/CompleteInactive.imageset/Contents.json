@@ -1,12 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "button.png",
+      "filename" : "button-5.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "button@2x.png",
+      "filename" : "button@2x-5.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
