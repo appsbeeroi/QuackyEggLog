@@ -7,9 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E43E3012E69E26B00D87EE4 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 7EE20B502E6620AE006FDA38 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		7EE20B4E2E66209B006FDA38 /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 7EE20B4D2E66209B006FDA38 /* SwipeActions */; };
 		7EE20B512E6620AE006FDA38 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7EE20B502E6620AE006FDA38 /* RealmSwift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7E43E3022E69E26B00D87EE4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7E43E3012E69E26B00D87EE4 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7E1C92832E6236DE0057F423 /* QuackyEggLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuackyEggLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +90,7 @@
 				7E1C927F2E6236DE0057F423 /* Sources */,
 				7E1C92802E6236DE0057F423 /* Frameworks */,
 				7E1C92812E6236DE0057F423 /* Resources */,
+				7E43E3022E69E26B00D87EE4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -294,7 +310,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.quacky.egg.log.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -332,7 +348,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.quacky.egg.log.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
