@@ -1,6 +1,4 @@
-import RealmSwift
-
-enum EventType: String, Identifiable, CaseIterable, PersistableEnum, Equatable {
+enum EventType: String, Identifiable, CaseIterable, Equatable, Codable {
     var id: Self { self }
     
     case vaccinations

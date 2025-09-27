@@ -7,10 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E43E3012E69E26B00D87EE4 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 7EE20B502E6620AE006FDA38 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7E3F70692E880409004B71FE /* FirebaseAnalyticsIdentitySupport in Frameworks */ = {isa = PBXBuildFile; productRef = 7E3F70682E880409004B71FE /* FirebaseAnalyticsIdentitySupport */; };
+		7E3F706B2E880409004B71FE /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 7E3F706A2E880409004B71FE /* FirebaseRemoteConfig */; };
+		7E80AAC42E86E0D6004EA5F3 /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7E80AABD2E86E0D6004EA5F3 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7E80AACD2E86E1C3004EA5F3 /* OneSignalExtension in Frameworks */ = {isa = PBXBuildFile; productRef = 7E80AACC2E86E1C3004EA5F3 /* OneSignalExtension */; };
+		7E80AACF2E86E1C3004EA5F3 /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 7E80AACE2E86E1C3004EA5F3 /* OneSignalFramework */; };
+		7E80AAD12E86E1C3004EA5F3 /* OneSignalInAppMessages in Frameworks */ = {isa = PBXBuildFile; productRef = 7E80AAD02E86E1C3004EA5F3 /* OneSignalInAppMessages */; };
 		7EE20B4E2E66209B006FDA38 /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 7EE20B4D2E66209B006FDA38 /* SwipeActions */; };
-		7EE20B512E6620AE006FDA38 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7EE20B502E6620AE006FDA38 /* RealmSwift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7E80AAC22E86E0D6004EA5F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E1C927B2E6236DE0057F423 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E80AABC2E86E0D6004EA5F3;
+			remoteInfo = OneSignalNotificationServiceExtension;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		7E43E3022E69E26B00D87EE4 /* Embed Frameworks */ = {
@@ -19,15 +33,26 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7E43E3012E69E26B00D87EE4 /* RealmSwift in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E80AAC92E86E0D6004EA5F3 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7E80AAC42E86E0D6004EA5F3 /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7E1C92832E6236DE0057F423 /* QuackyEggLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuackyEggLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E80AABD2E86E0D6004EA5F3 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -38,6 +63,20 @@
 			);
 			target = 7E1C92822E6236DE0057F423 /* QuackyEggLog */;
 		};
+		7E3F706F2E88062A004B71FE /* Exceptions for "QuackyEggLog" folder in "OneSignalNotificationServiceExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Resources/GoogleService-Info.plist",
+			);
+			target = 7E80AABC2E86E0D6004EA5F3 /* OneSignalNotificationServiceExtension */;
+		};
+		7E80AAC82E86E0D6004EA5F3 /* Exceptions for "OneSignalNotificationServiceExtension" folder in "OneSignalNotificationServiceExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 7E80AABC2E86E0D6004EA5F3 /* OneSignalNotificationServiceExtension */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -45,8 +84,17 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				7E1C92A12E6239BD0057F423 /* Exceptions for "QuackyEggLog" folder in "QuackyEggLog" target */,
+				7E3F706F2E88062A004B71FE /* Exceptions for "QuackyEggLog" folder in "OneSignalNotificationServiceExtension" target */,
 			);
 			path = QuackyEggLog;
+			sourceTree = "<group>";
+		};
+		7E80AABE2E86E0D6004EA5F3 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7E80AAC82E86E0D6004EA5F3 /* Exceptions for "OneSignalNotificationServiceExtension" folder in "OneSignalNotificationServiceExtension" target */,
+			);
+			path = OneSignalNotificationServiceExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -56,8 +104,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EE20B512E6620AE006FDA38 /* RealmSwift in Frameworks */,
+				7E3F70692E880409004B71FE /* FirebaseAnalyticsIdentitySupport in Frameworks */,
+				7E80AAD12E86E1C3004EA5F3 /* OneSignalInAppMessages in Frameworks */,
+				7E80AACF2E86E1C3004EA5F3 /* OneSignalFramework in Frameworks */,
 				7EE20B4E2E66209B006FDA38 /* SwipeActions in Frameworks */,
+				7E3F706B2E880409004B71FE /* FirebaseRemoteConfig in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E80AABA2E86E0D6004EA5F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E80AACD2E86E1C3004EA5F3 /* OneSignalExtension in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				7E1C92852E6236DE0057F423 /* QuackyEggLog */,
+				7E80AABE2E86E0D6004EA5F3 /* OneSignalNotificationServiceExtension */,
 				7E1C92842E6236DE0057F423 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				7E1C92832E6236DE0057F423 /* QuackyEggLog.app */,
+				7E80AABD2E86E0D6004EA5F3 /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,10 +152,12 @@
 				7E1C92802E6236DE0057F423 /* Frameworks */,
 				7E1C92812E6236DE0057F423 /* Resources */,
 				7E43E3022E69E26B00D87EE4 /* Embed Frameworks */,
+				7E80AAC92E86E0D6004EA5F3 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7E80AAC32E86E0D6004EA5F3 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				7E1C92852E6236DE0057F423 /* QuackyEggLog */,
@@ -102,11 +165,37 @@
 			name = QuackyEggLog;
 			packageProductDependencies = (
 				7EE20B4D2E66209B006FDA38 /* SwipeActions */,
-				7EE20B502E6620AE006FDA38 /* RealmSwift */,
+				7E80AACE2E86E1C3004EA5F3 /* OneSignalFramework */,
+				7E80AAD02E86E1C3004EA5F3 /* OneSignalInAppMessages */,
+				7E3F70682E880409004B71FE /* FirebaseAnalyticsIdentitySupport */,
+				7E3F706A2E880409004B71FE /* FirebaseRemoteConfig */,
 			);
 			productName = QuackyEggLog;
 			productReference = 7E1C92832E6236DE0057F423 /* QuackyEggLog.app */;
 			productType = "com.apple.product-type.application";
+		};
+		7E80AABC2E86E0D6004EA5F3 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E80AAC52E86E0D6004EA5F3 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				7E80AAB92E86E0D6004EA5F3 /* Sources */,
+				7E80AABA2E86E0D6004EA5F3 /* Frameworks */,
+				7E80AABB2E86E0D6004EA5F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				7E80AABE2E86E0D6004EA5F3 /* OneSignalNotificationServiceExtension */,
+			);
+			name = OneSignalNotificationServiceExtension;
+			packageProductDependencies = (
+				7E80AACC2E86E1C3004EA5F3 /* OneSignalExtension */,
+			);
+			productName = OneSignalNotificationServiceExtension;
+			productReference = 7E80AABD2E86E0D6004EA5F3 /* OneSignalNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -119,6 +208,9 @@
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					7E1C92822E6236DE0057F423 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					7E80AABC2E86E0D6004EA5F3 = {
 						CreatedOnToolsVersion = 16.4;
 					};
 				};
@@ -134,7 +226,8 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				7EE20B4C2E66209B006FDA38 /* XCRemoteSwiftPackageReference "SwipeActions" */,
-				7EE20B4F2E6620AE006FDA38 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				7E80AACB2E86E1C3004EA5F3 /* XCRemoteSwiftPackageReference "OneSignal-iOS-SDK" */,
+				7E3F70672E880409004B71FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7E1C92842E6236DE0057F423 /* Products */;
@@ -142,12 +235,20 @@
 			projectRoot = "";
 			targets = (
 				7E1C92822E6236DE0057F423 /* QuackyEggLog */,
+				7E80AABC2E86E0D6004EA5F3 /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7E1C92812E6236DE0057F423 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E80AABB2E86E0D6004EA5F3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -164,7 +265,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7E80AAB92E86E0D6004EA5F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7E80AAC32E86E0D6004EA5F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E80AABC2E86E0D6004EA5F3 /* OneSignalNotificationServiceExtension */;
+			targetProxy = 7E80AAC22E86E0D6004EA5F3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		7E1C928C2E6236DF0057F423 /* Debug */ = {
@@ -291,6 +407,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QuackyEggLog/QuackyEggLog.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -299,6 +416,7 @@
 				INFOPLIST_FILE = QuackyEggLog/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "QuackyEgg Log";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This is required to allow you to select photos from your gallery to upload and use within the app.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "We use your data to show personalized ads that help keep the app free and improve your experience.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -310,7 +428,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.quacky.egg.log.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -329,6 +447,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QuackyEggLog/QuackyEggLog.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -337,6 +456,7 @@
 				INFOPLIST_FILE = QuackyEggLog/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "QuackyEgg Log";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This is required to allow you to select photos from your gallery to upload and use within the app.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "We use your data to show personalized ads that help keep the app free and improve your experience.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -348,10 +468,74 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.quacky.egg.log.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		7E80AAC62E86E0D6004EA5F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quacky.egg.log.app.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		7E80AAC72E86E0D6004EA5F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quacky.egg.log.app.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -383,9 +567,34 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		7E80AAC52E86E0D6004EA5F3 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E80AAC62E86E0D6004EA5F3 /* Debug */,
+				7E80AAC72E86E0D6004EA5F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7E3F70672E880409004B71FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.3.0;
+			};
+		};
+		7E80AACB2E86E1C3004EA5F3 /* XCRemoteSwiftPackageReference "OneSignal-iOS-SDK" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OneSignal/OneSignal-iOS-SDK";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.14;
+			};
+		};
 		7EE20B4C2E66209B006FDA38 /* XCRemoteSwiftPackageReference "SwipeActions" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/aheze/SwipeActions";
@@ -394,26 +603,38 @@
 				minimumVersion = 1.1.0;
 			};
 		};
-		7EE20B4F2E6620AE006FDA38 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7E3F70682E880409004B71FE /* FirebaseAnalyticsIdentitySupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E3F70672E880409004B71FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsIdentitySupport;
+		};
+		7E3F706A2E880409004B71FE /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E3F70672E880409004B71FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+		7E80AACC2E86E1C3004EA5F3 /* OneSignalExtension */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E80AACB2E86E1C3004EA5F3 /* XCRemoteSwiftPackageReference "OneSignal-iOS-SDK" */;
+			productName = OneSignalExtension;
+		};
+		7E80AACE2E86E1C3004EA5F3 /* OneSignalFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E80AACB2E86E1C3004EA5F3 /* XCRemoteSwiftPackageReference "OneSignal-iOS-SDK" */;
+			productName = OneSignalFramework;
+		};
+		7E80AAD02E86E1C3004EA5F3 /* OneSignalInAppMessages */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E80AACB2E86E1C3004EA5F3 /* XCRemoteSwiftPackageReference "OneSignal-iOS-SDK" */;
+			productName = OneSignalInAppMessages;
+		};
 		7EE20B4D2E66209B006FDA38 /* SwipeActions */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7EE20B4C2E66209B006FDA38 /* XCRemoteSwiftPackageReference "SwipeActions" */;
 			productName = SwipeActions;
-		};
-		7EE20B502E6620AE006FDA38 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7EE20B4F2E6620AE006FDA38 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -21,12 +21,11 @@ struct SplashScreen: View {
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 isAnimating = true
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                    withAnimation {
-                        isShowMainFlow = true
-                    }
-                }
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .splashTransition)) { _ in
+            withAnimation {
+                isShowMainFlow = true
             }
         }
     }

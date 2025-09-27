@@ -1,91 +1,65 @@
 import Foundation
-import RealmSwift
 
 final class RealmManager: ObservableObject {
     
     static let shared = RealmManager()
     
-    private var realm: Realm?
+    private let defaults = UserDefaults.standard
+    private let storageKey = "RealmManagerStorage"
     
-    private init() {
-        Task {
-            await configureRealm()
-        }
-    }
+    private init() {}
     
-    @RealmActor
-    private func configureRealm() async {
-        do {
-            realm = try await Realm(actor: RealmActor.shared)
-        } catch {
-            print("🛑 Failed to configure Realm: \(error)")
-        }
-    }
+    // MARK: - Add
+    
+    func add<T: Codable & Identifiable>(_ object: T) async {
+        var currentObjects = await getAll(T.self)
         
-    @RealmActor
-    func add<T: Object>(_ object: T) async {
-        guard let realm else {
-            print("🛑 Realm not initialized")
-            return
+        // Если объект с таким же id есть, обновляем
+        if let index = currentObjects.firstIndex(where: { $0.id == object.id }) {
+            currentObjects[index] = object
+        } else {
+            currentObjects.append(object)
         }
         
-        do {
-            try realm.write {
-                realm.add(object, update: .all)
-            }
-        } catch {
-            print("🛑 Failed to add object: \(error)")
-        }
+        save(currentObjects)
     }
     
-    @RealmActor
-    func getAll<T: Object>() async -> [T] {
-        while realm == nil {
-            await Task.yield()
-        }
-        
-        guard let realm else {
-            print("🛑 Realm not initialized")
+    // MARK: - Get All
+    
+    func getAll<T: Codable & Identifiable>(_ type: T.Type) async -> [T] {
+        guard let data = defaults.data(forKey: "\(storageKey)_\(String(describing: T.self))") else {
             return []
         }
         
-        return Array(realm.objects(T.self))
-    }
-    
-    @RealmActor
-    func delete<T: Object>(_ type: T.Type, forPrimaryKey key: UUID) async {
-        guard let realm else {
-            print("🛑 Realm not initialized")
-            return
-        }
-        
-        guard let object = realm.object(ofType: type, forPrimaryKey: key) else {
-            print("⚠️ Object not found for key: \(key)")
-            return
-        }
-        
         do {
-            try realm.write {
-                realm.delete(object)
-            }
+            let decoded = try JSONDecoder().decode([T].self, from: data)
+            return decoded
         } catch {
-            print("🛑 Failed to delete object: \(error)")
+            print("🛑 Failed to decode objects: \(error)")
+            return []
         }
     }
     
-    @RealmActor
-    func deleteAll() async {
-        guard let realm else {
-            print("🛑 Realm not initialized")
-            return
-        }
-        
+    // MARK: - Delete
+    
+    func delete<T: Codable & Identifiable>(_ type: T.Type, forPrimaryKey key: T.ID) async {
+        var currentObjects = await getAll(T.self)
+        currentObjects.removeAll { $0.id == key }
+        save(currentObjects)
+    }
+    
+    func deleteAll<T: Codable & Identifiable>(_ type: T.Type) async {
+        defaults.removeObject(forKey: "\(storageKey)_\(String(describing: T.self))")
+    }
+    
+    // MARK: - Private Save
+    
+    private func save<T: Codable & Identifiable>(_ objects: [T]) {
         do {
-            try realm.write {
-                realm.deleteAll()
-            }
+            let data = try JSONEncoder().encode(objects)
+            defaults.set(data, forKey: "\(storageKey)_\(String(describing: T.self))")
         } catch {
-            print("🛑 Failed to delete all objects: \(error)")
+            print("🛑 Failed to save objects: \(error)")
         }
     }
 }

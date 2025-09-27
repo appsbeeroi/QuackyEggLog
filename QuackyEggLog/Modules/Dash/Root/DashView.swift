@@ -101,3 +101,8 @@ struct DashView: View {
     DashView(isShowTabBar: .constant(false))
 }
 
+enum NetworkError: Error {
+    case invalidURL
+    case noData
+    case invalidResponse
+}

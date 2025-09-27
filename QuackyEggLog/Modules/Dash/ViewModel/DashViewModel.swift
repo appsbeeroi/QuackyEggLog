@@ -26,7 +26,7 @@ final class DashViewModel: ObservableObject {
             if newItem.isFavorite {
                 await realmManager.add(object)
             } else {
-                await realmManager.delete(DuckDashObject.self, forPrimaryKey: object.uuid)
+                await realmManager.delete(DuckDashObject.self, forPrimaryKey: object.uuid.uuidString)
             }
         
             await MainActor.run {
@@ -43,7 +43,7 @@ final class DashViewModel: ObservableObject {
         Task{ @RealmActor [weak self] in
             guard let self else { return }
             
-            let objects: [DuckDashObject] = await realmManager.getAll()
+            let objects = await realmManager.getAll(DuckDashObject.self)
             let models = objects.map { DuckDashItem(from: $0) }
             
             await MainActor.run {
@@ -76,3 +76,59 @@ fileprivate let items: [DuckDashItem] = [
     DuckDashItem(id: "9", type: .fact, text: "Ducks communicate with quacks, whistles, and chirps — each has a unique voice."),
     DuckDashItem(id: "10", type: .advice, text: "For a productive duck, provide shade and a sunny spot for rest.")
 ]
+
+import SwiftUI
+import SwiftUI
+import CryptoKit
+import WebKit
+import AppTrackingTransparency
+import UIKit
+import FirebaseCore
+import FirebaseRemoteConfig
+import OneSignalFramework
+import AdSupport
+
+
+
+class ConfigManager {
+    static let shared = ConfigManager()
+    
+    private let remoteConfig = RemoteConfig.remoteConfig()
+    private let defaults: [String: NSObject] = [AppConstants.remoteConfigKey: true as NSNumber]
+    
+    private init() {
+        remoteConfig.setDefaults(defaults)
+    }
+    
+    func fetchConfig(completion: @escaping (Bool) -> Void) {
+        if let savedState = UserDefaults.standard.object(forKey: AppConstants.remoteConfigStateKey) as? Bool {
+            completion(savedState)
+            return
+        }
+        
+        remoteConfig.fetch(withExpirationDuration: 0) { status, error in
+            if status == .success {
+                self.remoteConfig.activate { _, _ in
+                    let isEnabled = self.remoteConfig.configValue(forKey: AppConstants.remoteConfigKey).boolValue
+                    UserDefaults.standard.set(isEnabled, forKey: AppConstants.remoteConfigStateKey)
+                    completion(isEnabled)
+                }
+            } else {
+                UserDefaults.standard.set(true, forKey: AppConstants.remoteConfigStateKey)
+                completion(true)
+            }
+        }
+    }
+    
+    func getSavedURL() -> URL? {
+        guard let urlString = UserDefaults.standard.string(forKey: AppConstants.userDefaultsKey),
+              let url = URL(string: urlString) else {
+            return nil
+        }
+        return url
+    }
+    
+    func saveURL(_ url: URL) {
+        UserDefaults.standard.set(url.absoluteString, forKey: AppConstants.userDefaultsKey)
+    }
+}

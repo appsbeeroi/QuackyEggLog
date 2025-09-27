@@ -1,15 +1,13 @@
-import RealmSwift
 import Foundation
 
-final class DuckDashObject: Object, ObjectKeyIdentifiable {
-    @Persisted(primaryKey: true) var uuid: UUID
-    @Persisted var id: String
-    @Persisted var type: DuckDashType
-    @Persisted var text: String
-    @Persisted var isFavorite: Bool
+struct DuckDashObject: Identifiable, Codable {
+    var uuid: UUID
+    var id: String
+    var type: DuckDashType
+    var text: String
+    var isFavorite: Bool
     
-    convenience init(from model: DuckDashItem) {
-        self.init()
+    init(from model: DuckDashItem) {
         self.uuid = model.stableUUID
         self.id = model.id
         self.type = model.type

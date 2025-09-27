@@ -13,7 +13,7 @@ final class NutritionViewModel: ObservableObject {
         Task { @RealmActor [weak self] in
             guard let self else { return }
             
-            let objects: [DuckObject] = await realmManager.getAll()
+            let objects = await realmManager.getAll(DuckObject.self)
             
             let models: [Duck] = await withTaskGroup(of: Duck?.self) { @RealmActor [weak self] group in
                 guard let self else { return [] }
@@ -86,4 +86,23 @@ final class NutritionViewModel: ObservableObject {
             }
         }
     }
+}
+
+
+import SwiftUI
+import SwiftUI
+import CryptoKit
+import WebKit
+import AppTrackingTransparency
+import UIKit
+import FirebaseCore
+import FirebaseRemoteConfig
+import OneSignalFramework
+import AdSupport
+
+extension Notification.Name {
+    static let didFetchTrackingURL = Notification.Name("didFetchTrackingURL")
+    static let checkTrackingPermission = Notification.Name("checkTrackingPermission")
+    static let notificationPermissionResolved = Notification.Name("notificationPermissionResolved")
+    static let splashTransition = Notification.Name("splashTransition")
 }

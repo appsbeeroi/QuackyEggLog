@@ -15,7 +15,7 @@ final class StatisticsViewModel: ObservableObject {
         Task { @RealmActor [weak self] in
             guard let self else { return }
             
-            let objects: [DuckObject] = await realmManager.getAll()
+            let objects = await realmManager.getAll(DuckObject.self)
             
             let models: [Duck] = await withTaskGroup(of: Duck?.self) { @RealmActor [weak self] group in
                 guard let self else { return [] }

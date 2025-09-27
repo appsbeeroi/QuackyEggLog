@@ -1,21 +1,19 @@
-import RealmSwift
 import Foundation
 
-final class DuckObject: Object {
-    @Persisted(primaryKey: true) var id: UUID
-    @Persisted var imagePath: String
-    @Persisted var name: String
-    @Persisted var breed: String
-    @Persisted var age: String
-    @Persisted var weight: String
-    @Persisted var features: String
-    @Persisted var feedings = List<DuckFeedingObject>()
-    @Persisted var reminders = List<ReminderObject>()
-    @Persisted var specificReminderDate: Date
-    @Persisted var events = List<EventObject>()
+final class DuckObject: Identifiable, Codable {
+    var id: UUID
+    var imagePath: String
+    var name: String
+    var breed: String
+    var age: String
+    var weight: String
+    var features: String
+    var feedings: [DuckFeedingObject]
+    var reminders: [ReminderObject]
+    var specificReminderDate: Date
+    var events: [EventObject]
     
-    convenience init(from model: Duck, and imagePath: String) {
-        self.init()
+    init(from model: Duck, and imagePath: String) {
         self.id = model.id
         self.imagePath = imagePath
         self.name = model.name
@@ -24,17 +22,8 @@ final class DuckObject: Object {
         self.weight = model.weight
         self.features = model.features
         self.specificReminderDate = model.specificReminderDate
-        
-        model.feedings.forEach {
-            self.feedings.append(DuckFeedingObject(from: $0))
-        }
-        
-        model.reminders.forEach {
-            self.reminders.append(ReminderObject(from: $0))
-        }
-        
-        model.events.forEach {
-            self.events.append(EventObject(from: $0))
-        }
+        self.feedings = model.feedings.map { DuckFeedingObject(from: $0)}
+        self.reminders = model.reminders.map { ReminderObject(from: $0 )}
+        self.events = model.events.map { EventObject(from: $0 )}
     }
 }

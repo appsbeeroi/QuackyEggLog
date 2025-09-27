@@ -1,14 +1,5 @@
 import SwiftUI
 
-final class AppDelegate: NSObject, UIApplicationDelegate {
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        NotificationManager.shared.requestAuthorization()
-        
-        return true 
-    }
-}
-
 @main
 struct QuackyEggLogApp: App {
     
@@ -16,8 +7,16 @@ struct QuackyEggLogApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView()
+            BlackWindow(rootView: MainView(), remoteConfigKey: AppConstants.remoteConfigKey)
         }
     }
 }
 
+struct AppConstants {
+    static let metricsBaseURL = "https://egquackyg.com/app/metrics"
+    static let salt = "0ZTQXBKGq399NJNXknZ1uPOo3TGmQW0K"
+    static let oneSignalAppID = "ff8583e2-1069-4d68-b11d-0f839088a080"
+    static let userDefaultsKey = "quacky"
+    static let remoteConfigStateKey = "quackyEggLog"
+    static let remoteConfigKey = "QuackyEggLogIsEnable"
+}
